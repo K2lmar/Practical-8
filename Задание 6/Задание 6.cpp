@@ -1,17 +1,18 @@
-﻿// Задание 1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Задание 6.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
+
 using namespace std;
 #include <iostream>
 
 int main()
 {
 	setlocale(0, "");
-	const int n = 2, m = 5;
-	int a[n][m] = {};
-	int b, c;
+	const int n = 3;
+	int a[n][n];
+	int max = a[0][0];
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++)
+		for (int j = 0; j < n; j++)
 		{
 			a[i][j] = rand() % 10;
 			cout << a[i][j] << " ";
@@ -19,19 +20,17 @@ int main()
 		cout << endl;
 	}
 
-	cout << "Введите интервал: ";
-	cin >> b >> c;
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++)
+		for (int j = 0; j < n; j++)
 		{
-			if ((a[i][j] >= b) && (a[i][j] <= c))
-				a[i][j] = 0;
-
-			cout << a[i][j] << " ";
+			if (a[i][j] > max)
+			{
+				max = a[i][j];
+			}
 		}
-		cout << endl;
 	}
+	cout << "Максиммальный элемент массива = " << max << endl;
 	return 0;
 }
 

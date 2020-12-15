@@ -1,38 +1,36 @@
-﻿// Задание 1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Задание 5.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
-using namespace std;
 #include <iostream>
+using namespace std;
 
 int main()
 {
-	setlocale(0, "");
-	const int n = 2, m = 5;
-	int a[n][m] = {};
-	int b, c;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			a[i][j] = rand() % 10;
-			cout << a[i][j] << " ";
-		}
-		cout << endl;
-	}
-
-	cout << "Введите интервал: ";
-	cin >> b >> c;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			if ((a[i][j] >= b) && (a[i][j] <= c))
-				a[i][j] = 0;
-
-			cout << a[i][j] << " ";
-		}
-		cout << endl;
-	}
-	return 0;
+    setlocale(0, "");
+    const int n = 3;
+    int a[n][n];
+    int sum = 0, chet = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            a[i][j] = rand() % 10;
+            cout << a[i][j] << " ";
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+            if ((i>j) && (a[i][j] % 2 == 0))
+            {
+                sum = sum + a[i][j];
+                chet++;
+            }
+    }
+    cout << "Сумма четных элементов массива: " << sum << endl;
+    cout << "Количество четных элементов массива: " << chet << endl;
+    cout << "Среднее арифметическое четных элементов массива ниже главной диагонали: " << (sum / chet) << endl;
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

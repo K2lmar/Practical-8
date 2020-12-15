@@ -1,38 +1,36 @@
-﻿// Задание 1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Задание 2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 using namespace std;
 #include <iostream>
 
 int main()
 {
-	setlocale(0, "");
-	const int n = 2, m = 5;
-	int a[n][m] = {};
-	int b, c;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			a[i][j] = rand() % 10;
-			cout << a[i][j] << " ";
-		}
-		cout << endl;
-	}
+    setlocale(0, "");
+    const int N = 20;
+    int b, c;
+    cout << "Дан массив: \n";
+    int a[N] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+                 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
-	cout << "Введите интервал: ";
-	cin >> b >> c;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			if ((a[i][j] >= b) && (a[i][j] <= c))
-				a[i][j] = 0;
+    for (int i = 0; i < N; i++)
+    {
+        cout << a[i] << " ";
+    }
+      cout << endl;
 
-			cout << a[i][j] << " ";
-		}
-		cout << endl;
-	}
-	return 0;
+    cout << "Введите интервал от 0 до 20: ";
+    cin >> b >> c;
+
+    cout << "Элементы непопадающие в заданный интервал: ";
+    for (int i = 0; i < N; i++)
+    {
+        if (a[i] < b || a[i] > c)
+        {
+            cout << a[i] << " ";
+        }
+    }
+    cout << endl;
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

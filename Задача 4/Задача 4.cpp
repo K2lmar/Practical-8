@@ -1,4 +1,4 @@
-﻿// Задание 1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Задача 4.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 using namespace std;
 #include <iostream>
@@ -6,35 +6,27 @@ using namespace std;
 int main()
 {
 	setlocale(0, "");
-	const int n = 2, m = 5;
-	int a[n][m] = {};
-	int b, c;
+	const int n = 10;
+	int a[n];
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++)
-		{
-			a[i][j] = rand() % 10;
-			cout << a[i][j] << " ";
-		}
-		cout << endl;
+		a[i] = rand() % (-10) + (-30);
+		cout << a[i] << " ";
 	}
+	cout << endl;
 
-	cout << "Введите интервал: ";
-	cin >> b >> c;
+	int max = a[0];
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++)
+		if (a[i] > max)
 		{
-			if ((a[i][j] >= b) && (a[i][j] <= c))
-				a[i][j] = 0;
-
-			cout << a[i][j] << " ";
+			max = a[i];
 		}
-		cout << endl;
 	}
+	cout << "Максимальный отрицательный элемент массива: " << max << endl;
 	return 0;
-}
 
+}
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 

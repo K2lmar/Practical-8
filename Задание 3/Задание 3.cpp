@@ -1,38 +1,36 @@
-﻿// Задание 1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Задание 3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 using namespace std;
 #include <iostream>
 
 int main()
 {
-	setlocale(0, "");
+    setlocale(0, "");
 	const int n = 2, m = 5;
 	int a[n][m] = {};
-	int b, c;
+	int *min;
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++)
 		{
-			a[i][j] = rand() % 10;
+			a[i][j] = rand() % 30;
 			cout << a[i][j] << " ";
 		}
 		cout << endl;
 	}
-
-	cout << "Введите интервал: ";
-	cin >> b >> c;
+	min = a[0];
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++)
 		{
-			if ((a[i][j] >= b) && (a[i][j] <= c))
-				a[i][j] = 0;
-
-			cout << a[i][j] << " ";
+			if (a[i][j] < *min)
+			{
+				*min = a[i][j];
+			}
 		}
-		cout << endl;
 	}
-	return 0;
+	cout << "Минимальный элемент: " << *min << endl;
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
